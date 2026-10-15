@@ -57,6 +57,10 @@ h1 { margin: 28px 0 20px; font-size: clamp(50px, 7.4vw, 100px); line-height: .88
 .orbit-two { width: 310px; height: 280px; transform: rotate(37deg); border-color: rgba(196,250,69,.12); }
 .hero-number { position: absolute; top: 13px; right: 4%; color: rgba(196,250,69,.1); font-size: 190px; line-height: 1; font-weight: 700; letter-spacing: -.1em; }
 .pixel-person { position: relative; width: 145px; height: 245px; margin-top: 25px; filter: drop-shadow(0 0 24px rgba(196,250,69,.23)); }
+.herobrine-toy { display: block; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.herobrine-toy:hover { filter: drop-shadow(0 0 30px rgba(196,250,69,.6)); }
+.herobrine-toy:focus-visible { outline: 2px dashed var(--acid); outline-offset: 9px; }
+.herobrine-toy.poke-bounce { animation: poke-bounce .38s ease-out; }
 .pixel-head { position: absolute; left: 30px; top: 0; width: 86px; height: 86px; background: #795e4c; border: 8px solid #403a32; box-shadow: inset 0 -15px 0 #66503f; }
 .pixel-head::before { content: ""; position: absolute; width: 100%; height: 13px; left: -8px; top: -8px; background: #463c32; }
 .pixel-head span { position: absolute; top: 34px; width: 16px; height: 8px; background: #efffd1; box-shadow: 0 0 13px #dfffaa; }
@@ -68,6 +72,7 @@ h1 { margin: 28px 0 20px; font-size: clamp(50px, 7.4vw, 100px); line-height: .88
 .pixel-person::after { content: ""; position: absolute; top: 184px; left: 34px; width: 76px; height: 61px; background: linear-gradient(90deg, #423c33 0 42%, transparent 42% 58%, #423c33 58%); }
 .art-label { position: absolute; color: var(--acid); font: 9px var(--mono); letter-spacing: .14em; }
 .label-top { top: 67px; left: 2%; }.label-bottom { bottom: 42px; right: 0; }
+.poke-bubble { position: absolute; top: 23%; right: 1%; max-width: 170px; padding: 8px 10px; border: 1px solid rgba(196,250,69,.45); background: rgba(16,19,15,.88); color: var(--acid); font: 9px/1.4 var(--mono); transform: rotate(3deg); }
 .crosshair { position: absolute; top: 41%; right: 14%; color: rgba(196,250,69,.55); font: 30px var(--mono); }
 .hero-side-note { position: absolute; right: 2%; top: 46%; writing-mode: vertical-rl; color: #55594f; font: 8px var(--mono); letter-spacing: .12em; }
 
@@ -105,18 +110,19 @@ h2 span { color: var(--acid); }
 .meme-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 48px; }
 .meme-card { height: 310px; padding: 17px; position: relative; overflow: hidden; border: 1px solid var(--line); background: #20251d; }
 .meme-topline { position: relative; z-index: 1; color: #a9ac9d; font: 8px var(--mono); letter-spacing: .09em; }
-.dog-emoji { position: absolute; top: 47px; left: 50%; transform: translateX(-50%) rotate(-8deg); font-size: 113px; filter: grayscale(1) contrast(1.4); }
 .meme-dog { background: radial-gradient(ellipse at 50% 45%, #b3b59f 0, #55594c 35%, #252920 72%); }
+.meme-image-slot { position: absolute; z-index: 1; inset: 43px 12px 66px; display: grid; place-items: center; overflow: hidden; border: 1px dashed rgba(238,238,222,.5); background: rgba(12,14,11,.56); color: var(--text); text-align: center; }
+.meme-image-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.upload-hint { z-index: 1; color: var(--acid); font: 9px/1.7 var(--mono); letter-spacing: .06em; }
+.upload-hint > span { display: block; margin-bottom: 4px; font: 30px/1 var(--sans); }
+.upload-hint small { color: #d1d2c7; font-size: 8px; letter-spacing: 0; }
 .meme-caption { position: absolute; z-index: 1; left: 18px; bottom: 19px; font: 700 22px/.98 var(--sans); letter-spacing: -.04em; }
 .meme-caption span { display: block; max-width: 220px; margin-top: 8px; color: #c3c5b7; font: 9px/1.5 var(--mono); letter-spacing: 0; }
 .meme-stamp { position: absolute; right: 17px; top: 54px; padding: 8px 6px; border: 1px solid var(--acid); color: var(--acid); font: 8px/1.4 var(--mono); transform: rotate(9deg); }
 .meme-verity { background: radial-gradient(circle at 75% 48%, #382340, #211a23 55%, #191a18); }
-.verity-glyph { position: absolute; left: 50%; top: 37%; transform: translate(-50%,-50%); color: #e6c5f5; font: 700 129px/.8 var(--sans); text-shadow: 0 0 28px rgba(212,130,242,.5); }
-.verity-glyph span { position: absolute; right: -12px; top: -15px; color: #f370c8; font: 500 35px var(--mono); }
-.verity-ghost { position: absolute; right: -10px; top: 40%; color: rgba(255,255,255,.05); font-size: 35px; font-weight: 700; transform: rotate(-90deg); }
 .meme-67 { background: radial-gradient(circle at 52% 43%, #344322, #1c2119 67%); }
-.big-67 { position: absolute; top: 57px; left: 50%; transform: translateX(-50%); color: var(--acid); font-size: 130px; line-height: 1; font-weight: 700; letter-spacing: -.12em; text-shadow: 0 0 26px rgba(196,250,69,.17); }
 .stamp-round { border-radius: 50%; text-align: center; transform: rotate(-12deg); }
+.meme-upload-note { margin: 18px 0 0; color: #84877b; font: 8px/1.6 var(--mono); letter-spacing: .07em; text-align: center; }
 
 .invocation { position: relative; min-height: 420px; padding: 83px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; overflow: hidden; }
 .invocation-grid { position: absolute; inset: 0; opacity: .13; background-image: linear-gradient(rgba(196,250,69,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(196,250,69,.25) 1px, transparent 1px); background-size: 47px 47px; mask-image: linear-gradient(transparent, black, transparent); }
@@ -150,6 +156,7 @@ h2 span { color: var(--acid); }
 @keyframes ticker { to { transform: translateX(-50%); } }
 @keyframes scare-arrive { from { opacity: 0; transform: scale(.08) rotate(-8deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
 @keyframes scare-flash { 0%, 32%, 66% { background: #f2e9e2; } 16%, 49%, 100% { background: #080504; } }
+@keyframes poke-bounce { 0%, 100% { transform: translateY(0) rotate(0); } 30% { transform: translateY(-22px) rotate(9deg); } 65% { transform: translateY(4px) rotate(-5deg); } }
 
 @media (max-width: 760px) {
   .site-header { height: 67px; padding: 0 5%; }
