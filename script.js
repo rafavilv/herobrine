@@ -1,7 +1,7 @@
 const messages = [
   "67 blocos... 66... 65... ele percebeu.",
   "ERRO 67: você não devia ter vindo.",
-  "Cão Relha detectado. Herobrine? Logo atrás.",
+  "Cão Orelha detectado. Herobrine? Logo atrás.",
   "Verity carregando... não, não carregou.",
   "Invocação concluída. (brincadeira. talvez.)"
 ];
@@ -43,7 +43,7 @@ if (pokeButton instanceof HTMLButtonElement && pokeCounter instanceof HTMLElemen
     "ei! respeita os mais velhos",
     "67? eu prefiro 68",
     "não fui eu que tirei as folhas da árvore",
-    "o Cão Relha mandou você parar",
+    "o Cão Orelha mandou você parar",
     "Verity.exe parou de funcionar",
     "voce cutucou o Herobrine. escolha questionavel"
   ];
